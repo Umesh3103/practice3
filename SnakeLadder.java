@@ -13,3 +13,10 @@ public class SnakeLadderUC1{
 		int START_POSITION = 0;
 	}
 }
+
+// Rolling the dice
+public class SnakeLadderUC2{
+	public static void main(String[] args) {
+		int n =(int) (Math.floor(Math.random() *10) %6)+1;
+	}
+}
