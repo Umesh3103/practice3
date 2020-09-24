@@ -139,3 +139,81 @@ public class SnakeLadderUC6{
 	}
 
 }
+
+// 2 Players
+
+public class SnakeLadderUC7{
+
+	public static void main (String[] args) 
+	{
+		
+		int START_POSITION =0;
+        	int NO_PLAY=0, LADDER =1, SNAKE=2;
+        	boolean flag=true;
+        
+        	int Player_Position1=START_POSITION, Player_Position2=START_POSITION;
+
+        	while(Player_Position1 <= 100 && Player_Position2<=100){
+        		int Die_Number= (int) (Math.floor(Math.random() *10) %6)+1;
+        	
+        		int Check_Option = (int) (Math.floor(Math.random() *10) %3);
+        	
+            		if(flag){
+                		if(Player_Position1 ==100){
+                    			break;
+                		}
+                		else if(Check_Option == LADDER){
+                        		Player_Position1 += Die_Number;
+                        		if(Player_Position1 >100){
+                            			Player_Position1 -= Die_Number;
+                        		}
+                		}
+                		else if(Check_Option ==SNAKE){
+                        		Player_Position1 -= Die_Number;
+                        		if(Player_Position1 <0){
+                            			Player_Position1=START_POSITION;
+                        		}
+                		}
+                		if(Check_Option == LADDER){
+                    			flag=true;
+                		}
+                		else{
+                    			flag=false;
+                		}
+            		}
+            		else{
+                		if(Player_Position2 ==100){
+                    			break;
+                		}
+                		else if(Check_Option == LADDER){
+                        		Player_Position2 += Die_Number;
+                        		if(Player_Position2 >100){
+                            			Player_Position2 -= Die_Number;
+                        		}
+                		}
+                		else if(Check_Option ==SNAKE){
+                        		Player_Position2 -= Die_Number;
+                        		if(Player_Position2 <0){
+                            			Player_Position2=START_POSITION;
+                        		}
+                		}
+                		if(Check_Option == LADDER){
+                    			flag=false;
+                		}
+                		else{
+                    			flag=true;
+                		}
+            		}
+            	
+        	}
+        	System.out.println("Player_Position1 " +Player_Position1);
+        	System.out.println("Player_Position2 " +Player_Position2);
+        	if(Player_Position1 ==100){
+        		System.out.println("Player_Position1 won");
+        	}
+        	else if(Player_Position2 ==100){
+            		System.out.println("Player_Position2 won");
+        	}
+
+	}
+}
